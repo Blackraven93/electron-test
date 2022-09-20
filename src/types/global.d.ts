@@ -1,11 +1,18 @@
 declare global {
   interface Window {
-    versions: Sandbox
+    versions: IVersion;
+    darkMode: IDarkMode;
   }
 }
-export interface Sandbox {
-  node(): string
-  chrome(): string
-  electron(): string
-  ping(): Promise<string>
+
+export interface IVersion {
+  node(): string;
+  chrome(): string;
+  electron(): string;
+  ping(): Promise<string>;
+}
+
+interface IDarkMode {
+  toggle(): Promise<string>;
+  system(): Promise<string>;
 }

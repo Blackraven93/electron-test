@@ -7,15 +7,17 @@
     "build": "tsc",
     "watch": "tsc -w",
     "lint": "eslint -c .eslintrc --ext .ts ./src",
-    "start": "pnpm build && electron ./dist/main.js"
+    "start": "pnpm build && electron ./dist/main.js",
+    "deploy:osx": "pnpm build && electron-builder --mac",
+    "deploy:win": "pnpm deploy:win32 && pnpm deploy:win64",
+    "deploy:win32": "electron-builder --win nsis:ia32",
+    "deploy:win64": "electron-builder --win nsis:x64",
+    "dist": "electron-builder --dir"
   },
   "repository": "https://github.com/electron/electron-quick-start-typescript",
   "keywords": [
     "Electron",
-    "quick",
-    "start",
     "tutorial",
-    "demo",
     "typescript"
   ],
   "author": "GitHub",
@@ -24,10 +26,65 @@
     "@types/node": "^18.7.14",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
+    "builder-util": "^23.5.0",
     "electron": "^20.0.1",
     "electron-builder": "^23.3.3",
+    "electron-is-dev": "^2.0.0",
+    "electron-packager": "^16.0.0",
     "eslint": "^7.32.0",
     "nodemon": "^2.0.19",
     "typescript": "^4.7.2"
-  }
+  },
+  "build": {
+"productName": "productTest", 
+"appId": "kr.co.productTest.www", 
+"asar": true,
+"protocols": {
+  "name": "productTest",
+  "schemes": [
+    "productTest"
+    ]
+  },
+"mac": { 
+  "target": [
+    "default"
+  ],
+ "icon": "./electron-root/favicon.ico"
+},
+"dmg": {
+ "title": "tournant",
+ "icon": "./electron-root/favicon.ico"
+},
+"win": {
+ "target": [
+ "zip",
+ "nsis"
+  ],
+  "icon": "./electron-root/favicon.ico"
+},
+"linux": { 
+  "target": [
+  "AppImage",
+  "deb",
+  "rpm",
+  "zip",
+  "tar.gz"
+  ],
+  "icon": "./electron-root/favicon.ico"
+},
+"nsis": {
+ "oneClick": false, 
+ "allowToChangeInstallationDirectory": false, 
+ "installerLanguages": [
+  "en_US",
+  "ko_KR"
+   ],
+   "language": "1042"
+},
+"directories": {
+   "buildResources": "resources/installer/",
+   "output": "build/", 
+   "app": "."
+}
+}
 }
