@@ -24,6 +24,7 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "@types/node": "^18.7.14",
+    "@types/web-bluetooth": "^0.0.15",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
     "builder-util": "^23.5.0",
@@ -36,55 +37,55 @@
     "typescript": "^4.7.2"
   },
   "build": {
-"productName": "productTest", 
-"appId": "kr.co.productTest.www", 
-"asar": true,
-"protocols": {
-  "name": "productTest",
-  "schemes": [
-    "productTest"
-    ]
-  },
-"mac": { 
-  "target": [
-    "default"
-  ],
- "icon": "./electron-root/favicon.ico"
-},
-"dmg": {
- "title": "tournant",
- "icon": "./electron-root/favicon.ico"
-},
-"win": {
- "target": [
- "zip",
- "nsis"
-  ],
-  "icon": "./electron-root/favicon.ico"
-},
-"linux": { 
-  "target": [
-  "AppImage",
-  "deb",
-  "rpm",
-  "zip",
-  "tar.gz"
-  ],
-  "icon": "./electron-root/favicon.ico"
-},
-"nsis": {
- "oneClick": false, 
- "allowToChangeInstallationDirectory": false, 
- "installerLanguages": [
-  "en_US",
-  "ko_KR"
-   ],
-   "language": "1042"
-},
-"directories": {
-   "buildResources": "resources/installer/",
-   "output": "build/", 
-   "app": "."
-}
-}
+    "productName": "productTest",
+    "appId": "kr.co.productTest.www",
+    "asar": true,
+    "protocols": {
+      "name": "productTest",
+      "schemes": [
+        "productTest"
+      ]
+    },
+    "mac": {
+      "target": [
+        "default"
+      ],
+      "icon": "./electron-root/favicon.ico"
+    },
+    "dmg": {
+      "title": "tournant",
+      "icon": "./electron-root/favicon.ico"
+    },
+    "win": {
+      "target": [
+        "zip",
+        "nsis"
+      ],
+      "icon": "./electron-root/favicon.ico"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb",
+        "rpm",
+        "zip",
+        "tar.gz"
+      ],
+      "icon": "./electron-root/favicon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": false,
+      "installerLanguages": [
+        "en_US",
+        "ko_KR"
+      ],
+      "language": "1042"
+    },
+    "directories": {
+      "buildResources": "resources/installer/",
+      "output": "build/",
+      "app": "."
+    }
+  }
 }

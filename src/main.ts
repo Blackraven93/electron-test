@@ -10,6 +10,22 @@ const createWindow = () => {
     },
   });
 
+  app.commandLine.appendSwitch(
+    "enable-experimental-web-platform-features",
+    "true"
+  );
+  app.commandLine.appendSwitch("enable-web-bluetooth", "true");
+
+  win.webContents.on(
+    "select-bluetooth-device",
+    (event, deviceList, callback) => {
+      event.preventDefault();
+      if (deviceList && deviceList.length > 0) {
+        callback(deviceList[0].deviceId);
+      }
+    }
+  );
+
   const isDevelopment = process.env.NODE_ENV !== "production";
   if (isDevelopment) {
     win.webContents.openDevTools();
