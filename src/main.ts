@@ -1,4 +1,10 @@
-import { app, BrowserWindow, ipcMain, nativeTheme } from "electron";
+import {
+  app,
+  BrowserWindow,
+  ipcMain,
+  nativeTheme,
+  Notification,
+} from "electron";
 import path from "path";
 
 const createWindow = () => {
@@ -46,9 +52,20 @@ const createWindow = () => {
   });
 };
 
+const notificationTitle = "Basic Notification";
+const notificationBody = "Notification from the Main process";
+
+const showNotification = () => {
+  new Notification({
+    title: notificationTitle,
+    body: notificationBody,
+  }).show();
+};
+
 app.on("ready", () => {
   ipcMain.handle("ping", () => "pong");
   createWindow();
+  showNotification();
   // ipcRenderer.send
   app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) {
