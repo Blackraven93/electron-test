@@ -65,8 +65,10 @@ const showNotification = () => {
 app.on("ready", () => {
   ipcMain.handle("ping", () => "pong");
   createWindow();
+  // Notification
   showNotification();
   // ipcRenderer.send
+  
   app.on("activate", () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow();
