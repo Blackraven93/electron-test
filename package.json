@@ -27,7 +27,7 @@
     "@types/web-bluetooth": "^0.0.15",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
-    "builder-util": "^23.5.0",
+    "builder-util": "^23.6.0",
     "electron": "^20.0.1",
     "electron-builder": "^23.3.3",
     "electron-is-dev": "^2.0.0",
